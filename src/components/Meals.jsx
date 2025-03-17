@@ -10,7 +10,6 @@ export default function Meals() {
         throw new Error("Failed to fetch meals.");
       }
       const meals = await response.json();
-      console.log(meals);
       setLoadedMeals(meals);
     }
     fetchMeals();
@@ -19,10 +18,7 @@ export default function Meals() {
   return (
     <ul id="meals">
       {loadedMeals.map((meal) => (
-        <MealItem
-          key={meal.id}
-          meal={meal}
-        />
+        <MealItem key={meal.id} meal={meal} />
       ))}
     </ul>
   );
